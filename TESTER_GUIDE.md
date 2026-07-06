@@ -1,0 +1,106 @@
+# Nyx Private Beta Tester Guide
+
+Use this guide to test Nyx and report useful feedback.
+
+## Goal
+
+Use Nyx like a normal Windows desktop AI assistant. We want to find crashes, freezes, confusing UI, bad model choices, and installer problems.
+
+## 1. Install and launch
+
+Check:
+
+- Installer completes.
+- Nyx launches.
+- Main chat window appears.
+- Settings opens.
+
+Report pass/fail, screenshots of errors, and any Windows warnings.
+
+## 2. Basic chat prompts
+
+Try these prompts:
+
+- hi
+- what can you do?
+- summarize this in one sentence: Nyx is a local AI app
+- write a short Python hello world script
+
+Expected:
+
+- Normal prompts should behave like normal chat.
+- Code prompts should format code clearly.
+- Simple prompts should not lock the app.
+
+## 3. Stop button test
+
+Ask Nyx to explain how a local AI assistant works in detail.
+
+While it is generating, press Stop.
+
+Expected:
+
+- Generation stops quickly.
+- App does not freeze.
+- Chat remains usable.
+- A follow-up prompt works.
+
+Then type hi.
+
+Expected:
+
+- Nyx should not continue the stopped topic unless asked.
+
+## 4. Model/backend test
+
+Check:
+
+- Does Nyx detect local models?
+- Does manual model selection work?
+- Does Auto mode make reasonable choices?
+- Does a simple prompt avoid using an obviously huge coder model?
+
+## 5. Settings test
+
+Open Settings and check:
+
+- General settings
+- model/backend settings
+- GGUF/llama.cpp area if visible
+- hardware detection if available
+
+## 6. Advanced/dev areas
+
+Only test these if comfortable.
+
+Check:
+
+- Dev Tools opens.
+- Audit/restore areas open.
+- Workspace/project areas require clear approval before making changes.
+
+## 7. What to report
+
+Please report:
+
+- crashes
+- freezes
+- broken buttons
+- confusing instructions
+- weird model choices
+- wrong or rambling answers
+- installer warnings
+- antivirus warnings
+
+## 8. Feedback format
+
+Use GitHub Issues when possible.
+
+Include:
+
+- what happened
+- what you expected
+- steps to reproduce
+- screenshot if possible
+- Windows version
+- whether Ollama/local models were installed
