@@ -13,20 +13,20 @@ This repository is for beta testers. It is not the main source-code repository.
 
 ## Download
 
-Use the latest package attached under this repository's **Releases** tab.
+Use the latest package attached under this repository's [Releases](../../releases) tab.
 
 Do not download random files from chat history or old links if a newer release exists here.
 
 ## Quick start
 
-1. Open **Releases**.
+1. Open [Releases](../../releases).
 2. Download the newest Nyx beta ZIP.
 3. Extract the ZIP.
 4. Read `README_INSTALL.txt` if included in the ZIP.
 5. Run the installer.
 6. Launch Nyx.
-7. Test using `TESTER_GUIDE.md`.
-8. Report bugs under **Issues**.
+7. Test using [TESTER_GUIDE.md](TESTER_GUIDE.md).
+8. Report bugs under [Issues](../../issues).
 
 ## Important beta notes
 
@@ -47,15 +47,16 @@ Current expected warnings:
 
 ## Useful docs
 
-- `INSTALL.md` — install steps.
-- `TESTER_GUIDE.md` — what to test.
-- `KNOWN_ISSUES.md` — current expected rough edges.
-- `SMARTSCREEN_NOTES.md` — Windows warning explanation.
-- `SECURITY_AND_PRIVACY.md` — beta safety notes.
-- `CHANGELOG.md` — release notes history.
+- [INSTALL.md](INSTALL.md) — install steps.
+- [TESTER_GUIDE.md](TESTER_GUIDE.md) — what to test.
+- [KNOWN_ISSUES.md](KNOWN_ISSUES.md) — current expected rough edges.
+- [SMARTSCREEN_NOTES.md](SMARTSCREEN_NOTES.md) — Windows warning explanation.
+- [SECURITY_AND_PRIVACY.md](SECURITY_AND_PRIVACY.md) — beta safety notes.
+- [CHANGELOG.md](CHANGELOG.md) — release notes history.
+- [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md) — maintainer release checklist.
 
 ## Main project
 
-Main source repo: `dietrichailabs-oss/Nyx`.
+Main source repo: [dietrichailabs-oss/Nyx](https://github.com/dietrichailabs-oss/Nyx).
 
-Beta distribution repo: `dietrichailabs-oss/Nyx-Beta`.
+Beta distribution repo: [dietrichailabs-oss/Nyx-Beta](https://github.com/dietrichailabs-oss/Nyx-Beta).
