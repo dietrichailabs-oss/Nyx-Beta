@@ -1,2 +1,61 @@
-# Nyx-Beta
-Private beta distribution repo for Nyx Windows releases
+# Nyx Windows Private Beta
+
+Private beta distribution repo for Nyx Windows builds by Dietrich AI Labs.
+
+This repository is for beta testers. It is not the main source-code repository.
+
+## What this repo is for
+
+- Downloading the latest Nyx Windows beta release package.
+- Reading install instructions.
+- Reading known issues and SmartScreen notes.
+- Reporting tester feedback through GitHub Issues.
+
+## Download
+
+Use the latest package attached under this repository's **Releases** tab.
+
+Do not download random files from chat history or old links if a newer release exists here.
+
+## Quick start
+
+1. Open **Releases**.
+2. Download the newest Nyx beta ZIP.
+3. Extract the ZIP.
+4. Read `README_INSTALL.txt` if included in the ZIP.
+5. Run the installer.
+6. Launch Nyx.
+7. Test using `TESTER_GUIDE.md`.
+8. Report bugs under **Issues**.
+
+## Important beta notes
+
+Nyx is private beta software. Expect rough edges.
+
+Current expected warnings:
+
+- Windows SmartScreen may warn because this is not broadly trusted signed software yet.
+- Antivirus may inspect or delay the installer because it is a new/private executable.
+- The app is Windows-focused right now.
+
+## Do not
+
+- Share beta ZIPs publicly.
+- Install on work/government/high-security machines.
+- Upload private files, credentials, keys, or sensitive business data during testing.
+- Treat beta output as professional, medical, legal, or financial advice.
+
+## Useful docs
+
+- `INSTALL.md` — install steps.
+- `TESTER_GUIDE.md` — what to test.
+- `KNOWN_ISSUES.md` — current expected rough edges.
+- `SMARTSCREEN_NOTES.md` — Windows warning explanation.
+- `SECURITY_AND_PRIVACY.md` — beta safety notes.
+- `CHANGELOG.md` — release notes history.
+
+## Main project
+
+Main source repo: `dietrichailabs-oss/Nyx`.
+
+Beta distribution repo: `dietrichailabs-oss/Nyx-Beta`.
