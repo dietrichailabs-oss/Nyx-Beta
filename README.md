@@ -54,8 +54,8 @@ Current expected warnings:
 - [CHANGELOG.md](CHANGELOG.md) — release notes history.
 - [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md) — maintainer release checklist.
 
-## Main project
+## Project repos
 
-Main source repo: [dietrichailabs-oss/Nyx](https://github.com/dietrichailabs-oss/Nyx).
+Main source repo: private Dietrich AI Labs development repository.
 
 Beta distribution repo: [dietrichailabs-oss/Nyx-Beta](https://github.com/dietrichailabs-oss/Nyx-Beta).
