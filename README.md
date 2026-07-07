@@ -1,6 +1,6 @@
-# Nyx Windows Private Beta
+# Nyx Windows Beta
 
-Private beta distribution repo for Nyx Windows builds by Dietrich AI Labs.
+Beta distribution repo for Nyx Windows releases by Dietrich AI Labs.
 
 This repository is for beta testers. It is not the main source-code repository.
 
@@ -30,18 +30,17 @@ Do not download random files from chat history or old links if a newer release e
 
 ## Important beta notes
 
-Nyx is private beta software. Expect rough edges.
+Nyx is beta software. Expect rough edges.
 
 Current expected warnings:
 
 - Windows SmartScreen may warn because this is not broadly trusted signed software yet.
-- Antivirus may inspect or delay the installer because it is a new/private executable.
+- Antivirus may inspect or delay the installer because it is a new beta executable.
 - The app is Windows-focused right now.
 
 ## Do not
 
-- Share beta ZIPs publicly.
-- Install on work/government/high-security machines.
+- Rehost modified beta ZIPs as official builds.
 - Upload private files, credentials, keys, or sensitive business data during testing.
 - Treat beta output as professional, medical, legal, or financial advice.
 
