@@ -2,7 +2,7 @@
 
 ## Before installing
 
-Nyx is private beta software. Install it only on a personal Windows machine you control.
+Nyx is beta software. Install it only on a personal Windows machine you control.
 
 Do not install this beta on:
 
