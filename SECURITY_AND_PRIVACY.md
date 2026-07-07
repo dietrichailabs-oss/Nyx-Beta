@@ -2,7 +2,7 @@
 
 Nyx is designed as a local-first Windows AI assistant.
 
-This private beta is intended for personal testing only.
+This beta is intended for personal testing only.
 
 ## Local-first goal
 
@@ -13,7 +13,7 @@ Nyx aims to run as much as possible locally on the user's computer, especially w
 During beta testing:
 
 - Do not use sensitive business data.
-- Do not paste private credentials, API keys, passwords, or secrets.
+- Do not paste passwords, keys, or other private access details.
 - Do not test on work or high-security machines.
 - Do not treat AI answers as professional advice.
 - Report confusing permission prompts or unclear behavior.
@@ -32,4 +32,4 @@ Report any case where Nyx appears to act without clear approval.
 
 ## Public sharing
 
-Private beta packages should not be reposted publicly without Dietrich AI Labs permission.
+Use the official Nyx-Beta Releases page for downloads. Do not rehost modified beta packages as official builds.
