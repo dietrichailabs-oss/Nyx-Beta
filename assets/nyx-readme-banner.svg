@@ -1,0 +1,65 @@
+<svg width="1280" height="640" viewBox="0 0 1280 640" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Nyx Windows Beta</title>
+  <desc id="desc">Nyx local-first AI assistant for Windows by Dietrich AI Labs</desc>
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#102c80" stop-opacity="0.65"/>
+      <stop offset="40%" stop-color="#07163f" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="nyxGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#dff7ff"/>
+      <stop offset="42%" stop-color="#8fc8ff"/>
+      <stop offset="72%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563eb" stop-opacity="0"/>
+      <stop offset="35%" stop-color="#38bdf8" stop-opacity="0.7"/>
+      <stop offset="65%" stop-color="#8b5cf6" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#9333ea" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.10 0 0 0 0 0.45 0 0 0 0 1.00 0 0 0 0.95 0" result="blueGlow"/>
+      <feMerge>
+        <feMergeNode in="blueGlow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="deepGlow" x="-120%" y="-120%" width="340%" height="340%">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="640" fill="url(#bgGlow)"/>
+  <rect width="1280" height="640" fill="#020617" opacity="0.35"/>
+
+  <g opacity="0.38" stroke="url(#lineGrad)" stroke-width="2" fill="none">
+    <path d="M0 480 H180 L250 410 H360"/>
+    <path d="M0 350 H150 L240 430 H380"/>
+    <path d="M1280 180 H1110 L1060 235 H930"/>
+    <path d="M1280 305 H1100 L1035 360 H900"/>
+    <path d="M1280 425 H1045 L995 475 H850"/>
+  </g>
+
+  <circle cx="640" cy="320" r="225" stroke="#2563eb" stroke-opacity="0.28" stroke-width="2" fill="none"/>
+  <path d="M640 95 A225 225 0 0 1 865 320" stroke="#3b82f6" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.9" filter="url(#deepGlow)"/>
+  <path d="M865 320 A225 225 0 0 1 640 545" stroke="#8b5cf6" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.9" filter="url(#deepGlow)"/>
+
+  <g filter="url(#softGlow)">
+    <text x="640" y="345" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="150" font-weight="800" letter-spacing="28" fill="url(#nyxGrad)">NYX</text>
+  </g>
+
+  <rect x="425" y="405" width="4" height="58" rx="2" fill="#60a5fa" opacity="0.95"/>
+  <text x="455" y="430" font-family="Segoe UI, Arial, sans-serif" font-size="30" letter-spacing="5" fill="#dbeafe" opacity="0.85">Local-First AI Assistant for Windows</text>
+  <text x="455" y="470" font-family="Segoe UI, Arial, sans-serif" font-size="25" letter-spacing="2" fill="#94a3b8">by <tspan fill="#60a5fa">Dietrich</tspan> <tspan fill="#818cf8">AI</tspan> <tspan fill="#c084fc">Labs</tspan></text>
+
+  <circle cx="235" cy="500" r="3" fill="#38bdf8" opacity="0.9" filter="url(#deepGlow)"/>
+  <circle cx="1060" cy="145" r="3" fill="#38bdf8" opacity="0.9" filter="url(#deepGlow)"/>
+  <circle cx="1115" cy="390" r="2" fill="#8b5cf6" opacity="0.8"/>
+</svg>
