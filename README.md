@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/nyx-readme-banner.svg" alt="Nyx — Local-First AI Assistant for Windows" width="100%" />
+</p>
+
 # Nyx Windows Beta
 
 Beta distribution repo for Nyx Windows releases by Dietrich AI Labs.
