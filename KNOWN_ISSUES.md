@@ -1,6 +1,6 @@
 # Known Issues
 
-This file tracks expected rough edges for the current Nyx Windows private beta.
+This file tracks expected rough edges for the current Nyx Windows beta.
 
 ## Windows SmartScreen warning
 
@@ -10,7 +10,7 @@ See `SMARTSCREEN_NOTES.md`.
 
 ## Unsigned or privately signed builds
 
-The beta may not yet have a public code-signing reputation. This is expected during early private testing.
+The beta may not yet have a public code-signing reputation. This is expected during early beta testing.
 
 ## Windows-first beta
 
@@ -24,7 +24,7 @@ Ollama/local model behavior depends on each tester's installed models, GPU, RAM,
 
 Known future polish item:
 
-After a stopped generation, very short follow-up messages like `hi` should not continue the stopped topic. This is tracked in the main source repo as BetaPolishPatch-1.
+After stopping a long response, very short follow-up messages should start a new normal reply unless the user asks to continue.
 
 ## Auto model routing polish
 
@@ -34,7 +34,7 @@ Simple chat or summary prompts should not automatically use a huge coder model i
 
 ## Installer reputation
 
-Antivirus tools may inspect or delay the installer because the executable is new and not widely distributed.
+Some system protection tools may inspect or delay the installer because the executable is new and not widely distributed.
 
 ## Reporting new issues
 
