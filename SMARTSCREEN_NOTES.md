@@ -1,6 +1,6 @@
 # Windows SmartScreen Notes
 
-Windows SmartScreen may warn when running a new private beta installer.
+Windows SmartScreen may warn when running a new beta installer.
 
 This can happen even when the installer was intentionally created by the developer. SmartScreen reputation builds over time and is affected by signing, download reputation, and how widely software is used.
 
@@ -21,14 +21,12 @@ Before running the installer, confirm:
 - If hashes are provided, the hash matches `SHA256SUMS.txt`.
 - The installer name/version matches the release notes.
 
-## What this does not mean
+## What this warning usually means
 
-A SmartScreen warning does not automatically mean the app is malicious.
-
-It usually means Windows does not yet have enough reputation data for that exact app/signature/download.
+It usually means Windows does not yet have enough reputation data for that exact app, signature, or download.
 
 ## Future improvement
 
 A future beta may add private or public code-signing steps to reduce warnings.
 
-For early private beta, testers should expect warnings and report exactly what they see.
+For early beta, testers should expect warnings and report exactly what they see.
