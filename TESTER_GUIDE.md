@@ -1,23 +1,16 @@
-# Nyx Private Beta Tester Guide
+# Nyx Beta Tester Guide
 
 Use this guide to test Nyx and report useful feedback.
 
 ## Goal
 
-Use Nyx like a normal Windows desktop AI assistant. We want to find crashes, freezes, confusing UI, bad model choices, and installer problems.
+Use Nyx like a normal Windows desktop AI assistant. We want to find app problems, confusing UI, bad model choices, and installer problems.
 
-## 1. Install and launch
+## Install and launch
 
-Check:
+Check that the installer completes, Nyx launches, the main chat window appears, and Settings opens.
 
-- Installer completes.
-- Nyx launches.
-- Main chat window appears.
-- Settings opens.
-
-Report pass/fail, screenshots of errors, and any Windows warnings.
-
-## 2. Basic chat prompts
+## Basic chat prompts
 
 Try these prompts:
 
@@ -32,26 +25,21 @@ Expected:
 - Code prompts should format code clearly.
 - Simple prompts should not lock the app.
 
-## 3. Stop button test
+## Stop button test
 
-Ask Nyx to explain how a local AI assistant works in detail.
-
-While it is generating, press Stop.
+Ask Nyx to explain how a local AI assistant works in detail. While it is generating, press Stop.
 
 Expected:
 
 - Generation stops quickly.
-- App does not freeze.
-- Chat remains usable.
+- App stays usable.
 - A follow-up prompt works.
 
 Then type hi.
 
-Expected:
+Expected: Nyx should not continue the stopped topic unless asked.
 
-- Nyx should not continue the stopped topic unless asked.
-
-## 4. Model/backend test
+## Model/backend test
 
 Check:
 
@@ -60,7 +48,7 @@ Check:
 - Does Auto mode make reasonable choices?
 - Does a simple prompt avoid using an obviously huge coder model?
 
-## 5. Settings test
+## Settings test
 
 Open Settings and check:
 
@@ -69,7 +57,7 @@ Open Settings and check:
 - GGUF/llama.cpp area if visible
 - hardware detection if available
 
-## 6. Advanced/dev areas
+## Advanced/dev areas
 
 Only test these if comfortable.
 
@@ -79,20 +67,19 @@ Check:
 - Audit/restore areas open.
 - Workspace/project areas require clear approval before making changes.
 
-## 7. What to report
+## What to report
 
 Please report:
 
-- crashes
-- freezes
+- app hangs or unexpected closes
 - broken buttons
 - confusing instructions
 - weird model choices
-- wrong or rambling answers
+- wrong or overly long answers
 - installer warnings
 - antivirus warnings
 
-## 8. Feedback format
+## Feedback format
 
 Use GitHub Issues when possible.
 
