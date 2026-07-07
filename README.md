@@ -8,6 +8,16 @@ Beta distribution repo for Nyx Windows releases by Dietrich AI Labs.
 
 This repository is for beta testers. It is not the main source-code repository.
 
+## Latest download
+
+**Current public beta:** Nyx Beta 1.0 RC2
+
+- Download the installer: [Nyx_Beta_1.0.0_RC2_Setup.exe](../../releases/latest/download/Nyx_Beta_1.0.0_RC2_Setup.exe)
+- Download the ZIP package: [Nyx_Beta_1.0.0_RC2_Windows.zip](../../releases/latest/download/Nyx_Beta_1.0.0_RC2_Windows.zip)
+- View all releases: [Releases](../../releases)
+
+Do not download random files from chat history or old links if a newer release exists here.
+
 ## What this repo is for
 
 - Downloading the latest Nyx Windows beta release package.
@@ -15,22 +25,24 @@ This repository is for beta testers. It is not the main source-code repository.
 - Reading known issues and SmartScreen notes.
 - Reporting tester feedback through GitHub Issues.
 
-## Download
-
-Use the latest package attached under this repository's [Releases](../../releases) tab.
-
-Do not download random files from chat history or old links if a newer release exists here.
-
 ## Quick start
 
-1. Open [Releases](../../releases).
-2. Download the newest Nyx beta ZIP.
-3. Extract the ZIP.
-4. Read `README_INSTALL.txt` if included in the ZIP.
-5. Run the installer.
-6. Launch Nyx.
-7. Test using [TESTER_GUIDE.md](TESTER_GUIDE.md).
-8. Report bugs under [Issues](../../issues).
+1. Open [Releases](../../releases), or use the latest download links above.
+2. Download `Nyx_Beta_1.0.0_RC2_Setup.exe` or the RC2 ZIP package.
+3. If using the ZIP, extract it first.
+4. Run the installer.
+5. Launch Nyx.
+6. Test using [TESTER_GUIDE.md](TESTER_GUIDE.md).
+7. Report bugs under [Issues](../../issues) or by using the in-app **Bug Report** button.
+
+## What's new in RC2
+
+- Added in-app Bug Report button and local report package flow.
+- Added optional screenshot/attachment support for bug reports.
+- Added email draft launch to Dietrich AI Labs support.
+- Refreshed Nyx app and installer icons.
+- Updated About / Version / Changelog to RC2.
+- Cleaned visible Settings labels and removed duplicate sidebar About button.
 
 ## Important beta notes
 
