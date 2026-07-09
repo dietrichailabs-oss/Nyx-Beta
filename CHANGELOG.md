@@ -1,5 +1,63 @@
 # Changelog
 
+This changelog tracks the public Nyx Windows beta distribution repo and notes current development-stage work when relevant.
+
+## Current development: RC5-dev
+
+Status: development branch only. Not packaged or publicly released yet.
+
+RC5 is currently being developed in the main source repository on the `rc5-backend-status-polish` branch.
+
+### Added / improved
+
+- Dev Assistant Backend Status panel polish.
+- Shared read-only Backend Status Core.
+- Read-only Ollama API health checks.
+- Cached vs live Ollama model-count reporting.
+- Smarter backend recommendation text.
+- Backend Self-Test checklist with PASS/WARN/FAIL status.
+- Settings llama.cpp / GGUF page reuse of the shared Backend Status Core.
+- Compact Settings backend summary while Dev Assistant keeps full diagnostics.
+- Visible Dev Assistant **Copy Backend Status** button for easier diagnostic sharing.
+- Local/generated file ignore cleanup for development hygiene.
+- README updates showing RC4 as latest public release and RC5 as current development branch.
+
+### Safety
+
+- Backend Status refresh is read-only.
+- Backend Status refresh does not start servers.
+- Backend Status refresh does not install software.
+- Backend Status refresh does not download models.
+- Backend Status refresh does not switch backends.
+- Backend Status refresh does not edit settings.
+- llama.cpp / GGUF remains manual-only unless explicitly configured by the user.
+
+## v1.0.0-rc4
+
+Nyx Beta 1.0 RC4 public beta release.
+
+### Added / improved
+
+- Fixed runtime/taskbar icon handling.
+- Updated app version metadata to Nyx Beta 1.0 RC4.
+- Updated installer metadata to RC4.
+- Updated `nyx.version` metadata to RC4.
+- Improved Audit tab into a scrollable read-only panel.
+- Improved Restore tab into a scrollable read-only panel.
+- Restored Hardware access in Settings > General as a normal user-facing action.
+- Added read-only Hardware Auto-Detect window for setup/model recommendation context.
+- Normalized Settings > General action row so neighboring buttons match in size, color, padding, and alignment.
+- Preserved safety behavior for Audit, Restore, and Hardware views.
+
+### Tester focus
+
+- Install RC4 from the latest release package.
+- Confirm the runtime/taskbar icon appears correctly.
+- Open Settings > General > Hardware and confirm the read-only Hardware Auto-Detect window opens.
+- Confirm Settings > General button row remains aligned and stable.
+- Confirm Audit and Restore open as read-only scrollable panels.
+- Check normal chat, Stop, Regenerate, and model routing behavior.
+
 ## v1.0.0-rc2
 
 Nyx Beta 1.0 RC2 public beta release.
