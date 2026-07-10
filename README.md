@@ -95,6 +95,17 @@ Default install location:
 - llama.cpp / GGUF remains optional for configured users.
 - No old failed installer archive script is being treated as the RC5 source.
 
+## Known RC5 issues already tracked
+
+Please check this list before opening a new issue. Extra reports are still useful if they add a new reproduction path, screenshot, machine type, or log detail.
+
+- **Duplicate First-Run Setup windows** — tracked in #5. RC5 may open both the older full-featured setup wizard and a newer minimal/themed setup window on first launch. The planned RC6 fix is to keep the full Ollama/model setup wizard, theme it correctly, add hardware-aware model recommendations, and prevent duplicate first-run windows.
+- **Dev Tools top tabs are grey / not themed** — tracked in #6. This is a UI theme polish issue with the top tabs/notebook styling.
+- **Pinned taskbar icon opens a separate running icon** — tracked in #7. This is an installer/Windows AppUserModelID/shortcut grouping polish issue.
+- **No-model popup behavior passed clean VM testing** — tracked in #8 as a pass note. If no local model is installed, Nyx should show a no-model popup instead of pretending to answer. Chat worked after a model was loaded.
+
+Not currently considered a Nyx bug: a small/clipped window in the clean Hyper-V VM was fixed by changing the VM display/resolution/scaling settings.
+
 ## Important beta notes
 
 Nyx is beta software. Expect rough edges.
