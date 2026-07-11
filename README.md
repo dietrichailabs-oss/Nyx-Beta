@@ -10,38 +10,32 @@ This repository is for beta testers. It is not the main source-code repository.
 
 ## Latest public download
 
-**Current public beta:** Nyx Beta 1.0 RC5
+**Current public beta:** Nyx Beta 1.0 RC6
 
-- Download the release package: [Nyx_Beta_1_0_RC5_20260709_180632.zip](../../releases/latest/download/Nyx_Beta_1_0_RC5_20260709_180632.zip)
+- Download the release package: [Nyx_Beta_1_0_RC6_20260711_111716.zip](../../releases/latest/download/Nyx_Beta_1_0_RC6_20260711_111716.zip)
 - View all releases: [Releases](../../releases)
 
-The RC5 package includes:
+The RC6 package includes:
 
-- `Nyx_Beta_1.0_RC5_Setup.exe`
+- `Nyx_Beta_1.0_RC6_Setup.exe`
 - `SHA256SUMS.txt`
-- `RC5_PACKAGE_NOTES.txt`
+- `RC6_PACKAGE_NOTES.txt`
 - `RUN_INSTALLER_WITH_LOG.bat`
-- `Nyx_Beta_1.0_RC5_silent_test_install.log`
+- `README.txt`
 
 Do not download random files from chat history, commit history, or old links if a newer release exists here.
 
 ## Current release status
 
-Nyx Beta 1.0 RC5 is the current public release candidate package.
+Nyx Beta 1.0 RC6 is the current public release candidate package.
 
-RC5 includes backend readiness/status polish and a fresh Inno Setup installer build from the current Windows executable. The installer package was staged from the valid RC5 build timestamp:
-
-```text
-20260709_180632
-```
-
-The earlier failed/fake-success package timestamp must not be used:
+RC6 focuses on first-run setup reliability, installer polish, hardware-aware starter model recommendations, and tester-facing cleanup. The validated RC6 build package is:
 
 ```text
-20260709_175647
+Nyx_Beta_1_0_RC6_20260711_111716
 ```
 
-RC5 Backend Status refresh behavior is read-only. It must not start servers, install software, download models, switch backends, or edit settings.
+The previous RC5 build remains preserved in the release history, but RC6 is the recommended tester download.
 
 ## What this repo is for
 
@@ -53,13 +47,14 @@ RC5 Backend Status refresh behavior is read-only. It must not start servers, ins
 ## Quick start
 
 1. Open [Releases](../../releases), or use the latest download link above.
-2. Download `Nyx_Beta_1_0_RC5_20260709_180632.zip`.
-3. Extract the ZIP package.
-4. Run `Nyx_Beta_1.0_RC5_Setup.exe`.
+2. Download `Nyx_Beta_1_0_RC6_20260711_111716.zip`.
+3. Extract the ZIP package. It should extract into one top-level folder.
+4. Run `Nyx_Beta_1.0_RC6_Setup.exe`.
 5. If Windows SmartScreen appears, choose **More info > Run anyway**.
 6. Launch Nyx from the Start Menu or desktop shortcut if created.
-7. Test using [TESTER_GUIDE.md](TESTER_GUIDE.md).
-8. Report bugs under [Issues](../../issues) or by using the in-app **Bug Report** button.
+7. Use the First-Run Setup window to configure Ollama/model folders and review starter model recommendations.
+8. Test using [TESTER_GUIDE.md](TESTER_GUIDE.md).
+9. Report bugs under [Issues](../../issues) or by using the in-app **Bug Report** button.
 
 Default install location:
 
@@ -67,42 +62,43 @@ Default install location:
 %LOCALAPPDATA%\Programs\Nyx
 ```
 
-## What's new in RC5
+## What's new in RC6
 
-- Updated Nyx public release stage to RC5.
-- Updated About / Changelog wording to show RC5 as the current public release candidate.
-- Added backend readiness/status polish for Ollama, llama.cpp / GGUF, and backend routing visibility.
-- Improved backend status wording so setup state is easier for testers to understand.
-- Preserved RC4 and earlier release history below the current RC5 changelog.
-- Rebuilt the Windows executable from the current `C:\Nyx` source.
-- Built a fresh RC5 Inno Setup installer instead of reusing old failed/archive installer scripts.
-- Used the small setup icon to avoid prior Inno resource-size failures.
-- Included SHA256 checksum and package notes for tester validation.
+- Fixed duplicate First-Run Setup behavior.
+- Restored one full-featured First-Run Setup window.
+- Added lazy hardware auto-detect and recommended model selection.
+- Added a Refresh Hardware button.
+- Improved Settings open speed.
+- Improved Dev Assistant theme matching.
+- Fixed taskbar grouping with a stable Windows AppUserModelID.
+- Fixed installer icon handling.
+- Added user-facing `Uninstall Nyx` shortcuts with Nyx icon.
+- Improved ZIP layout so files extract into one folder.
+- Preserved no-model popup behavior.
+- Preserved uninstall/reset behavior.
 
-## Verified in RC5
+## Verified in RC6
 
-- App executable rebuilt successfully.
-- Inno Setup compiler found at the per-user install path.
-- RC5 installer compiled successfully with Inno Setup 6.7.1.
-- Silent install log shows the installation process succeeded.
-- Silent install log shows `Nyx.exe` installed to the test install directory.
-- About / Changelog shows RC5 public release candidate wording.
-- `docs\CHANGELOG.md` matches the embedded changelog status in the app source.
-- RC4 remains preserved as historical changelog content.
-- Backend readiness/status polish is included.
-- Cloud Connector remains disabled by default.
-- Ollama remains the easiest default local backend.
-- llama.cpp / GGUF remains optional for configured users.
-- No old failed installer archive script is being treated as the RC5 source.
+- Clean VM install completed successfully.
+- First launch opens exactly one First-Run Setup window.
+- Hardware section detects CPU/RAM in the VM and safely treats GPU/VRAM as unknown when unavailable.
+- Recommended starter models update safely without blocking first launch.
+- Settings opens quickly after moving model/status checks out of the initial open path.
+- Dev Assistant follows the active Nyx theme on open and theme change.
+- Taskbar grouping works after reinstall/re-pin.
+- Installer icon displays correctly.
+- `Uninstall Nyx` shortcuts are present with the Nyx icon.
+- ZIP package extracts into one clean top-level folder.
+- No-model popup behavior remains intact.
 
-## Known RC5 issues already tracked
+## RC5 issues resolved or improved in RC6
 
 Please check this list before opening a new issue. Extra reports are still useful if they add a new reproduction path, screenshot, machine type, or log detail.
 
-- **Duplicate First-Run Setup windows** — tracked in #5. RC5 may open both the older full-featured setup wizard and a newer minimal/themed setup window on first launch. The planned RC6 fix is to keep the full Ollama/model setup wizard, theme it correctly, add hardware-aware model recommendations, and prevent duplicate first-run windows.
-- **Dev Tools top tabs are grey / not themed** — tracked in #6. This is a UI theme polish issue with the top tabs/notebook styling.
-- **Pinned taskbar icon opens a separate running icon** — tracked in #7. This is an installer/Windows AppUserModelID/shortcut grouping polish issue.
-- **No-model popup behavior passed clean VM testing** — tracked in #8 as a pass note. If no local model is installed, Nyx should show a no-model popup instead of pretending to answer. Chat worked after a model was loaded.
+- **Duplicate First-Run Setup windows** — improved in RC6. The intended setup path is now one full-featured `Nyx First Run Setup` window.
+- **Dev Tools / Dev Assistant theme mismatch** — improved in RC6. The Dev Assistant now attempts to follow the active Nyx shell theme.
+- **Pinned taskbar icon opened a separate running icon** — improved in RC6 using a stable AppUserModelID.
+- **No-model popup behavior** — remains expected behavior. If no local model is installed, Nyx should show a no-model popup instead of pretending to answer.
 
 Not currently considered a Nyx bug: a small/clipped window in the clean Hyper-V VM was fixed by changing the VM display/resolution/scaling settings.
 
@@ -115,6 +111,7 @@ Current expected warnings:
 - Windows SmartScreen may warn because this is not broadly trusted signed software yet.
 - Antivirus may inspect or delay the installer because it is a new beta executable.
 - First launch may still require Ollama setup or model download depending on the tester machine.
+- Internal Inno Setup uninstall files such as `unins000.exe` are normal; use the `Uninstall Nyx` shortcut or Windows Installed Apps UI.
 - GGUF / llama.cpp requires separate local configuration.
 - Large local models may take time to load depending on hardware.
 - Restore/Rollback is informational only.
@@ -147,10 +144,10 @@ Beta distribution repo: [dietrichailabs-oss/Nyx-Beta](https://github.com/dietric
 
 ## Version
 
-Latest public release candidate: `1.0.0-rc.5`
+Latest public release candidate: `1.0.0-rc.6`
 
-Release tag: `v1.0.0-rc.5`
+Release tag: `v1.0.0-rc.6`
 
-Build package: `Nyx_Beta_1_0_RC5_20260709_180632`
+Build package: `Nyx_Beta_1_0_RC6_20260711_111716`
 
-Previous public release candidate: `1.0.0-rc4`
+Previous public release candidate: `1.0.0-rc.5`
