@@ -1,5 +1,8 @@
 blank_issues_enabled: true
 contact_links:
-  - name: Nyx private beta docs
+  - name: Nyx Windows beta documentation
     url: https://github.com/dietrichailabs-oss/Nyx-Beta
-    about: Read install instructions, known issues, and tester guide before opening a report.
+    about: Review the current release, install guide, known issues, tester guide, hardware requirements, and RC7 validation plan before opening a report.
+  - name: Current known issues
+    url: https://github.com/dietrichailabs-oss/Nyx-Beta/blob/main/KNOWN_ISSUES.md
+    about: Check active RC6 limitations and RC7 release-blocking work before filing a duplicate.
