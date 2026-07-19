@@ -8,6 +8,20 @@ Beta distribution repo for Nyx Windows releases by Dietrich AI Labs.
 
 This repository is for beta testers. It is not the main source-code repository.
 
+<p align="center">
+  <a href="../../issues">
+    <img src="https://img.shields.io/badge/KNOWN%20ISSUES%20%26%20ACTIVE%20WORK-READ%20BEFORE%20TESTING-red?style=for-the-badge" alt="Known Issues and Active Work" />
+  </a>
+</p>
+
+> **🔴 Known issues / currently working on**
+>
+> - **RC7 Agents:** live execution progress, same-run Agents Lab monitoring, changed-model reapproval/retry, automatic multi-stage runs, recommendation profile controls, and clear output reporting are under final validation.
+> - **Smart Web / Auto routing:** unconfigured cloud fallback and low-spec local-model timeout handling need improvement; scheduled for RC8.
+> - **Live themes:** some Agents surfaces may not repaint immediately after a theme change.
+>
+> Check [open issues](../../issues) before filing a duplicate report.
+
 ## Latest public download
 
 **Current public beta:** Nyx Beta 1.0 RC6
