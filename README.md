@@ -85,7 +85,9 @@ Nyx can run without a dedicated GPU, including on supported integrated graphics 
 - **AMD supported\*** — Nyx was successfully trialed with an older **Radeon RX 5700 XT 8 GB** running `llama3.1:8b` fully on the GPU. Newer desktop Radeon generations should generally work without issue with current drivers and adequate VRAM, though experience may vary by exact GPU, driver, and backend.
 - Integrated GPUs can work for lighter models and basic use, but performance and supported model sizes vary widely. Users should expect smaller-model recommendations and potentially slower responses.
 - CPU-only use is supported for smaller models, but larger models may be impractically slow or may time out on weak hardware.
-- Internal SSD or NVMe storage is recommended for active medium and large models. External spinning hard drives are better suited to bulk/archive storage and may cause very long cold loads.
+- Internal SSD or NVMe storage is recommended for active medium and large models.
+
+> **External-drive warning:** If models must be stored externally, a fast external SSD over USB-C or USB 3.x is recommended. User experience may vary based on the drive, enclosure, cable, negotiated link speed, and model size. USB-C is only the connector and does not guarantee high performance. External spinning hard drives are better suited to bulk/archive storage and may cause very long cold loads or application timeouts with larger models.
 
 See [HARDWARE_REQUIREMENTS.md](HARDWARE_REQUIREMENTS.md) for the full minimum, recommended, AMD validation, storage, and model-size guidance.
 
@@ -141,6 +143,7 @@ Current expected warnings:
 - Internal Inno Setup uninstall files such as `unins000.exe` are normal; use the `Uninstall Nyx` shortcut or Windows Installed Apps UI.
 - GGUF / llama.cpp requires separate local configuration.
 - Large local models may take time to load depending on hardware.
+- External model drives may load much more slowly. USB-C/USB 3.x external SSDs are recommended when external storage is necessary; experience may vary, and USB-C alone does not guarantee high performance.
 - Restore/Rollback is informational only.
 - Audit Viewer is read-only metadata only.
 - Hardware Auto-Detect is read-only metadata only.
