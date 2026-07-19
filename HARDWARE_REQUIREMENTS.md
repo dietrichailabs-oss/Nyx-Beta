@@ -13,7 +13,7 @@ Intended for basic local chat and smaller models, generally in the 1B–3B range
 | System RAM | 8 GB |
 | Storage | SSD strongly recommended; allow at least 15–30 GB for Nyx, Ollama, and a small starter-model set |
 | GPU | Optional for small CPU-run models |
-| AMD GPU acceleration | AMD Radeon with current drivers and a working Ollama ROCm/Vulkan backend; **RX 5700 XT 8 GB is the current tested AMD baseline** |
+| AMD GPU acceleration* | AMD Radeon with current drivers and a working Ollama ROCm/Vulkan backend; **tested successfully with an RX 5700 XT 8 GB** |
 | NVIDIA GPU acceleration | Supported Ollama-compatible NVIDIA GPU; 8 GB VRAM is a practical floor for many 7B–8B models |
 
 Systems below this target may still launch Nyx, but local inference can be extremely slow or may time out. A Celeron-class 4 GB system is considered a degraded compatibility floor, not a supported local-AI target.
@@ -28,10 +28,12 @@ Intended for smooth everyday Nyx use, Smart Web with a local response model, and
 | CPU | Intel Core i5-10400/i5-12400 or AMD Ryzen 5 3600/5600 class or better |
 | System RAM | 16 GB minimum; 32 GB preferred for larger workflows, multiple tools, and agent projects |
 | Storage | Internal SSD or NVMe for active models; additional HDD storage is suitable for archives and infrequently used models |
-| GPU | Supported NVIDIA or AMD discrete GPU with at least 8 GB VRAM |
+| GPU | Supported NVIDIA or AMD* discrete GPU with at least 8 GB VRAM |
 | Preferred VRAM | 12 GB or more for larger contexts, larger models, and fewer CPU/RAM spillovers |
 | AMD example | **Radeon RX 5700 XT 8 GB or better**; validated on Windows with `llama3.1:8b` fully loaded at `100% GPU` through Ollama |
 | NVIDIA example | RTX 2060 Super 8 GB class or better; broader model choice improves with 12 GB+ VRAM |
+
+\* **AMD support note:** Nyx was trialed successfully with an older Radeon RX 5700 XT 8 GB. Experience may vary by exact GPU, driver, and Ollama backend, but newer compatible Radeon GPUs should generally work without issue when properly supported and configured.
 
 ## Validated AMD result
 
