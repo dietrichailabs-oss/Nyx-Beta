@@ -1,32 +1,64 @@
 # Windows SmartScreen Notes
 
-Windows SmartScreen may warn when running a new beta installer.
+Windows SmartScreen may warn when running a new Nyx beta installer.
 
-This can happen even when the installer was intentionally created by the developer. SmartScreen reputation builds over time and is affected by signing, download reputation, and how widely software is used.
+The current public package is **Nyx Beta 1.0 RC6**. It may show limited reputation or an **Unknown publisher** warning because the beta does not yet have broad signing and download reputation.
 
-## What testers may see
+## Messages testers may see
 
 Possible messages include:
 
-- Windows protected your PC
-- Unknown publisher
-- This app is not commonly downloaded
+- **Windows protected your PC**
+- **Unknown publisher**
+- **This app is not commonly downloaded**
+- a browser or antivirus warning that the file is new or uncommon
 
-## What to check before continuing
+A warning is not proof that the file is malicious, but it is also not a reason to bypass verification.
 
-Before running the installer, confirm:
+## Verify before continuing
 
-- You downloaded it from the official Nyx-Beta repository release.
-- The ZIP was not renamed or modified by someone else.
-- If hashes are provided, the hash matches `SHA256SUMS.txt`.
-- The installer name/version matches the release notes.
+Before running the installer, confirm all of the following:
 
-## What this warning usually means
+- it was downloaded from the official [Nyx-Beta Releases](../../releases) page
+- the ZIP and installer names match the current release notes
+- the package has not been renamed, modified, or rehosted by someone else
+- the installer hash matches the entry in `SHA256SUMS.txt`
+- the expected public version is RC6 unless you are intentionally testing another named build
 
-It usually means Windows does not yet have enough reputation data for that exact app, signature, or download.
+For RC6, the expected installer filename is:
 
-## Future improvement
+```text
+Nyx_Beta_1.0_RC6_Setup.exe
+```
 
-A future beta may add private or public code-signing steps to reduce warnings.
+From PowerShell in the extracted package folder:
 
-For early beta, testers should expect warnings and report exactly what they see.
+```powershell
+Get-FileHash .\Nyx_Beta_1.0_RC6_Setup.exe -Algorithm SHA256
+```
+
+Stop if the hash does not match the published checksum.
+
+## Continuing through SmartScreen
+
+After verifying the source and checksum, Windows may provide **More info** and then **Run anyway**. Choosing that option is the tester's decision; do not continue when the source or hash is uncertain.
+
+## Code signing status
+
+The current RC6 public beta may not display a trusted publisher identity. Future release work is intended to add Authenticode signing under **Dietrich AI Labs**, but signing alone does not instantly create broad SmartScreen reputation.
+
+For a future signed build, testers should verify that Windows shows the expected publisher and that the signature is valid. A signature naming an unexpected publisher should be treated as a reason to stop.
+
+## What to report
+
+Report the exact warning text and include:
+
+- Nyx package/version
+- installer filename
+- download source
+- whether the checksum matched
+- Windows version
+- browser or antivirus product when relevant
+- a cropped screenshot with personal paths and identifying information removed
+
+Do not post full diagnostic archives, serial numbers, passwords, keys, or private local paths in a public issue.
