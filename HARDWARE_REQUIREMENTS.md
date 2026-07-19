@@ -37,7 +37,7 @@ Intended for smooth everyday Nyx use, Smart Web with a local response model, and
 
 ## Validated AMD result
 
-The current Little Bro test machine successfully ran:
+The test machine successfully ran:
 
 ```text
 GPU: AMD Radeon RX 5700 XT, 8 GB
