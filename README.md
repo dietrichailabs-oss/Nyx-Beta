@@ -76,6 +76,19 @@ Default install location:
 %LOCALAPPDATA%\Programs\Nyx
 ```
 
+## Hardware expectations
+
+Nyx can run without a dedicated GPU, including on supported integrated graphics or CPU-only systems, but local-model speed, model size, and first-response latency may vary significantly.
+
+- A **dedicated GPU is still recommended** for the best local-model experience.
+- NVIDIA and AMD discrete GPUs are supported through the configured Ollama/backend path when the GPU, driver, and backend combination is compatible.
+- **AMD supported\*** — Nyx was successfully trialed with an older **Radeon RX 5700 XT 8 GB** running `llama3.1:8b` fully on the GPU. Newer desktop Radeon generations should generally work without issue with current drivers and adequate VRAM, though experience may vary by exact GPU, driver, and backend.
+- Integrated GPUs can work for lighter models and basic use, but performance and supported model sizes vary widely. Users should expect smaller-model recommendations and potentially slower responses.
+- CPU-only use is supported for smaller models, but larger models may be impractically slow or may time out on weak hardware.
+- Internal SSD or NVMe storage is recommended for active medium and large models. External spinning hard drives are better suited to bulk/archive storage and may cause very long cold loads.
+
+See [HARDWARE_REQUIREMENTS.md](HARDWARE_REQUIREMENTS.md) for the full minimum, recommended, AMD validation, storage, and model-size guidance.
+
 ## What's new in RC6
 
 - Fixed duplicate First-Run Setup behavior.
@@ -144,6 +157,7 @@ Current expected warnings:
 
 - [INSTALL.md](INSTALL.md) — install steps.
 - [TESTER_GUIDE.md](TESTER_GUIDE.md) — what to test.
+- [HARDWARE_REQUIREMENTS.md](HARDWARE_REQUIREMENTS.md) — minimum, recommended, AMD, integrated-GPU, storage, and model-size guidance.
 - [KNOWN_ISSUES.md](KNOWN_ISSUES.md) — current expected rough edges.
 - [SMARTSCREEN_NOTES.md](SMARTSCREEN_NOTES.md) — Windows warning explanation.
 - [SECURITY_AND_PRIVACY.md](SECURITY_AND_PRIVACY.md) — beta safety notes.
