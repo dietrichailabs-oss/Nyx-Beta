@@ -16,8 +16,10 @@ This repository is for beta testers. It is not the main source-code repository.
 
 > **🔴 Known issues / currently working on**
 >
-> - **RC7 Agents:** live execution progress, same-run Agents Lab monitoring, changed-model reapproval/retry, automatic multi-stage runs, recommendation profile controls, and clear output reporting are under final validation.
-> - **Smart Web / Auto routing:** unconfigured cloud fallback and low-spec local-model timeout handling need improvement; scheduled for RC8.
+> - **RC7 Agents:** live execution progress, same-run Agents Lab monitoring, changed-model reapproval/retry, automatic multi-stage runs, recommendation profile controls, truthful blocked state, and clear output reporting are under final validation.
+> - **Local routing / fallback:** explicitly selected local models can be intercepted by incorrect routing, and a failed backend may emit a second fabricated answer. This is an RC7 release blocker.
+> - **Ollama / hardware / storage:** executable discovery, AMD CPU/GPU/VRAM display, and slow external-model-drive warnings are being repaired for RC7.
+> - **Installer:** the next installer build will move application binaries to Program Files while preserving writable user data and separately configured model storage.
 > - **Live themes:** some Agents surfaces may not repaint immediately after a theme change.
 >
 > Check [open issues](../../issues) before filing a duplicate report.
@@ -161,6 +163,7 @@ Current expected warnings:
 - [INSTALL.md](INSTALL.md) — install steps.
 - [TESTER_GUIDE.md](TESTER_GUIDE.md) — what to test.
 - [HARDWARE_REQUIREMENTS.md](HARDWARE_REQUIREMENTS.md) — minimum, recommended, AMD, integrated-GPU, storage, and model-size guidance.
+- [RC7_VALIDATION_PLAN.md](RC7_VALIDATION_PLAN.md) — planned cross-hardware and release-blocker acceptance testing for RC7.
 - [KNOWN_ISSUES.md](KNOWN_ISSUES.md) — current expected rough edges.
 - [SMARTSCREEN_NOTES.md](SMARTSCREEN_NOTES.md) — Windows warning explanation.
 - [SECURITY_AND_PRIVACY.md](SECURITY_AND_PRIVACY.md) — beta safety notes.
