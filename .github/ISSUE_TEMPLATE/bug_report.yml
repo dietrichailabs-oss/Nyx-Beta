@@ -1,0 +1,128 @@
+name: Nyx bug report
+description: Report a reproducible problem with the current Nyx Windows beta
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for testing Nyx. The in-app **Bug Report** tool is preferred when available because it helps collect relevant details locally.
+
+        Do not post passwords, API keys, private documents, full diagnostic archives, serial numbers, credentials, or sensitive local paths in a public issue.
+
+  - type: dropdown
+    id: version
+    attributes:
+      label: Nyx version
+      description: Check About or Build Info in Nyx.
+      options:
+        - 1.0.0-rc.7
+        - Older beta release
+        - Unknown / Nyx will not open
+    validations:
+      required: true
+
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package type
+      options:
+        - Windows installer / Setup.exe
+        - Installer ZIP
+        - Portable ZIP
+        - Source/development launch
+        - Unknown
+    validations:
+      required: true
+
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version
+      description: Example: Windows 11 24H2
+      placeholder: Windows version and edition
+    validations:
+      required: true
+
+  - type: textarea
+    id: hardware
+    attributes:
+      label: Hardware
+      description: Include CPU, RAM, GPU, VRAM, and model-storage drive when known.
+      placeholder: |
+        CPU:
+        RAM:
+        GPU / VRAM:
+        Model storage:
+    validations:
+      required: false
+
+  - type: textarea
+    id: model_backend
+    attributes:
+      label: Model and backend
+      description: Include the selected model, Ollama or GGUF/llama.cpp backend, and Smart Web state when relevant.
+      placeholder: |
+        Model:
+        Backend:
+        Smart Web:
+    validations:
+      required: false
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the observed behavior clearly.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Include the exact prompt or action sequence when relevant.
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots or sanitized logs
+      description: Drag files here only after removing private or sensitive information.
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional context
+      description: Include whether the issue repeats after closing and reopening Nyx.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy confirmation
+      options:
+        - label: I removed passwords, keys, credentials, private documents, serial numbers, and sensitive local paths from this report.
+          required: true
+
+  - type: checkboxes
+    id: duplicate
+    attributes:
+      label: Duplicate check
+      options:
+        - label: I checked the existing open issues for the same problem.
+          required: true
