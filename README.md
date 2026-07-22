@@ -5,7 +5,7 @@
 # Nyx Windows Beta
 
 <p align="center">
-  <a href="https://github.com/dietrichailabs-oss/Nyx-Beta/releases/tag/v1.0.0-rc.7"><img src="https://img.shields.io/badge/latest-RC7-5d5fef?style=for-the-badge" alt="Latest release: RC7" /></a>
+  <a href="https://github.com/dietrichailabs-oss/Nyx-Beta/releases/tag/1.0.0RC7"><img src="https://img.shields.io/badge/latest-RC7-5d5fef?style=for-the-badge" alt="Latest release: RC7" /></a>
   <a href="https://github.com/dietrichailabs-oss/Nyx-Beta/issues/new?template=bug_report.yml"><img src="https://img.shields.io/badge/report-a%20bug-d73a4a?style=for-the-badge" alt="Report a bug" /></a>
   <a href="https://github.com/dietrichailabs-oss/Nyx-Beta/issues"><img src="https://img.shields.io/badge/view-open%20issues-f0ad4e?style=for-the-badge" alt="View open issues" /></a>
 </p>
@@ -21,7 +21,7 @@ Nyx is a **local-first Windows AI assistant** by Dietrich AI Labs. This public r
 **Version:** `1.0.0-rc.7`  
 **Build:** `2026.07.21-rc7`  
 **Windows file version:** `1.0.0.7`  
-**Release tag:** [`v1.0.0-rc.7`](https://github.com/dietrichailabs-oss/Nyx-Beta/releases/tag/v1.0.0-rc.7)
+**Release tag:** [`1.0.0RC7`](https://github.com/dietrichailabs-oss/Nyx-Beta/releases/tag/1.0.0RC7)
 
 Choose the package that fits your use:
 
@@ -110,7 +110,7 @@ See [CHANGELOG.md](CHANGELOG.md) for the complete release history.
 
 ## Quick start
 
-1. Open the [`v1.0.0-rc.7` release](https://github.com/dietrichailabs-oss/Nyx-Beta/releases/tag/v1.0.0-rc.7).
+1. Open the [`1.0.0RC7` release](https://github.com/dietrichailabs-oss/Nyx-Beta/releases/tag/1.0.0RC7).
 2. Download the normal installer, installer ZIP, or portable ZIP.
 3. Verify the SHA-256 checksum.
 4. For the installer, run `Nyx_1.0.0-rc.7_Windows_x64_Setup.exe` and follow the prompts.
@@ -189,7 +189,7 @@ Product: Nyx Beta 1.0 RC7
 Version: 1.0.0-rc.7
 Build: 2026.07.21-rc7
 Windows file version: 1.0.0.7
-Release tag: v1.0.0-rc.7
+Release tag: 1.0.0RC7
 ```
 
 Previous public release candidate: `1.0.0-rc.6`
