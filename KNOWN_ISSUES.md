@@ -1,126 +1,29 @@
-# Known Issues
+# Known Issues and Expected Limitations
 
-This file summarizes current public Nyx Windows beta limitations and active RC7 validation work.
+This page describes the current public Nyx Windows beta limitations. Active defects and new tester reports are tracked in [GitHub Issues](https://github.com/dietrichailabs-oss/Nyx-Beta/issues).
 
-- **Current public beta:** Nyx Beta 1.0 RC6
-- **Current private development:** RC7, not yet packaged or publicly released
+- **Current public beta:** Nyx Beta 1.0 RC7
+- **Version:** `1.0.0-rc.7`
+- **Build:** `2026.07.21-rc7`
+- **Release:** [`v1.0.0-rc.7`](https://github.com/dietrichailabs-oss/Nyx-Beta/releases/tag/v1.0.0-rc.7)
 
-Some issues may already have code changes in the private RC7 tree but remain listed until they pass normal-app physical validation and the issue is formally closed.
+RC7 completed application acceptance, exact-artifact package QA, security and package-cleanliness review, host installer lifecycle testing, and clean native Windows VM validation. That does not mean every hardware, model, driver, or backend combination will behave identically.
 
-## RC7 release-blocking areas
+## Current expected limitations
 
-### Agent approval, retry, and execution state
+### Windows SmartScreen and antivirus reputation
 
-Planning and execution can disagree about whether the current stage model assignment is approved. This can leave Start or Retry blocked, or create a run that appears ready without actually starting a stage.
+Nyx is beta software and does not yet have broad code-signing and download reputation. Windows or antivirus software may display messages such as:
 
-Tracked issues:
+- **Unknown publisher**
+- **Windows protected your PC**
+- **This app is not commonly downloaded**
 
-- [#10 — Retry can remain blocked after changing and approving a failed-stage model assignment](../../issues/10)
+Verify the release SHA-256 values before running the installer. See [SMARTSCREEN_NOTES.md](SMARTSCREEN_NOTES.md).
 
-Required behavior before release:
+### Local-model performance varies by hardware
 
-- every executable stage must have a current approved model assignment
-- Start must show exact blockers before creating a run
-- changed assignments must invalidate only the old approval fingerprint
-- Retry, Run Next, Stop, Resume, and automatic progression must preserve one authoritative persisted run
-
-### Explicit-local routing and Smart Web
-
-An explicitly selected local model must not be intercepted by Smart Web, an unconfigured cloud provider, or stale routing state. Negated instructions such as `Do not use the internet` must not trigger web routing.
-
-Tracked issue:
-
-- [#12 — Smart Web can route into disabled Cloud Router/Cloud Connector instead of free web search plus local model](../../issues/12)
-
-### Hidden fallback and fabricated answers
-
-After a local backend failure, Nyx may emit a second answer from an unidentified fallback path. Hardware answers observed through that path contained invented CPU and RAM facts.
-
-Tracked issue:
-
-- [#17 — Backend failure triggers hidden fallback that fabricates local hardware facts](../../issues/17)
-
-Required behavior before release:
-
-- one authoritative result per request
-- no hidden second answer after `RuntimeError`
-- explicit route, backend, model, and failure reason
-- verified hardware telemetry or `Unknown`, never invention
-
-### Ollama executable discovery and model-pull status
-
-RC6 may fail to locate a valid user-local `ollama.exe` even though Ollama works from PowerShell. A failed pull may also be summarized with misleading completion wording.
-
-Tracked issue:
-
-- [#15 — Ollama Library cannot find installed ollama.exe and reports failed pulls as completed](../../issues/15)
-
-### Hardware identity and VRAM reporting
-
-RC6 may show AMD GPU/VRAM as `Unknown` or display a raw AMD Family/Model/Stepping CPU string instead of the friendly Ryzen product name.
-
-Tracked issues:
-
-- [#13 — AMD Radeon GPU and VRAM are reported as Unknown during First Run Setup](../../issues/13)
-- [#14 — AMD CPU friendly name falls back to raw Family/Model/Stepping identity](../../issues/14)
-
-Nyx must use reliable vendor-neutral sources, including a 64-bit-capable VRAM source. Unknown values must remain `Unknown`.
-
-### Slow external model storage
-
-Large models stored on an external spinning hard drive can saturate the disk during cold loading and outlast application timeouts even though the model eventually loads successfully.
-
-Tracked issue:
-
-- [#16 — Warn before using large models from slow USB hard drives](../../issues/16)
-
-Internal SSD or NVMe storage is recommended for active medium and large models. USB-C is a connector, not a performance guarantee.
-
-### Installer layout and stale installation traces
-
-The current RC6 installer uses a per-user application location:
-
-```text
-%LOCALAPPDATA%\Programs\Nyx
-```
-
-The next installer is planned to place application binaries under Program Files while keeping writable data under AppData and model storage separately configurable.
-
-Tracked issue:
-
-- [#18 — Next installer build should install Nyx application binaries under Program Files](../../issues/18)
-
-Upgrade testing must verify that obsolete shortcuts, launch targets, and uninstall entries do not remain behind.
-
-## Active RC7 polish and validation
-
-### Live theme switching
-
-Some already-open Agents surfaces may not repaint completely until refreshed or reopened.
-
-- [#9 — Agents surfaces do not reliably update during live theme switching](../../issues/9)
-
-### Recommendation profile clarity
-
-Recommended stage assignments need an explicit choice between smaller/faster suitable models and larger/stronger suitable models.
-
-- [#11 — Recommended assignments need Smallest Suitable vs Larger/Stronger model preference](../../issues/11)
-
-## Current RC6 expected limitations
-
-### Windows SmartScreen and installer reputation
-
-The current public beta may show **Unknown publisher**, **Windows protected your PC**, or **This app is not commonly downloaded** because the package does not yet have broad signing and download reputation.
-
-See [SMARTSCREEN_NOTES.md](SMARTSCREEN_NOTES.md).
-
-### Windows-first beta
-
-Nyx is currently focused on Windows. Linux work is separate from the current Windows beta release, and macOS is not part of this package.
-
-### Local model behavior varies by system
-
-Local-model speed and capacity depend on:
+Local-model speed, supported model size, and first-response latency depend on:
 
 - CPU and system RAM
 - GPU, VRAM, driver, and backend compatibility
@@ -128,15 +31,32 @@ Local-model speed and capacity depend on:
 - model-storage media and cold-load time
 - other applications already using RAM or VRAM
 
-Systems below the published minimum may still launch but can be extremely slow or time out.
+Nyx can launch on CPU-only and integrated-GPU systems, but smaller models may be required and generation can be significantly slower. Systems below the recommended hardware may time out on larger models even when the application itself is functioning correctly.
 
 See [HARDWARE_REQUIREMENTS.md](HARDWARE_REQUIREMENTS.md).
 
-### Informational and read-only surfaces
+### Slow external model storage
 
-Hardware Auto-Detect, Audit Viewer, Restore/Rollback, and Backend Status are intended to remain informational or diagnostic unless the user explicitly chooses a separate action.
+Large models stored on an external spinning hard drive can saturate the disk during cold loading and may outlast application timeouts.
 
-They should not silently:
+Use an internal SSD or NVMe drive for active medium and large models when possible. A fast external SSD may work, but USB-C describes the connector and does not guarantee the drive, enclosure, cable, or negotiated link is fast enough.
+
+### First-run backend setup
+
+Nyx does not secretly download a model.
+
+- Ollama must be installed and configured separately when using Ollama models.
+- GGUF/llama.cpp remains a separate local backend path and may require manual configuration.
+- A missing or unavailable model should produce a truthful setup or failure state rather than a fabricated answer.
+- Nyx should never silently switch backends or download a replacement model without explicit approval.
+
+Report any behavior that violates these expectations.
+
+### Informational and read-only tools
+
+Hardware Auto-Detect, Audit Viewer, Restore/Rollback, and Backend Status are informational or diagnostic unless the user explicitly selects a separate action.
+
+A refresh should not silently:
 
 - install software
 - download models
@@ -145,22 +65,42 @@ They should not silently:
 - edit settings
 - restore, delete, overwrite, or replay files
 
-Report any case where an informational refresh appears to change system or project state.
+Report any case where an informational refresh appears to change system, model, or project state.
 
-## Reporting a new issue
+### Beta interface behavior
 
-Check the repository's open issues before filing a duplicate. Additional reports are still useful when they provide a different machine, model, reproduction path, screenshot, or log.
+RC7 received extensive theme, Agents, Planning, Watch Live, retry, Stop, and window-lifecycle validation. Unusual display scaling, multi-monitor layouts, uncommon Windows themes, remote sessions, or graphics-driver behavior may still expose visual issues.
+
+When reporting a visual defect, include the Windows scaling percentage, display resolution, monitor count, and whether the problem occurs after changing themes or reopening the affected window.
+
+### Windows-first release
+
+Nyx is currently focused on Windows. Linux work and the future Nyx OS are separate projects that will be built around a mature, modular Nyx core. macOS is not part of this package.
+
+## Before opening a new issue
+
+1. Check the [open issues](https://github.com/dietrichailabs-oss/Nyx-Beta/issues) for an existing report.
+2. Confirm you are using `1.0.0-rc.7` or clearly identify the older version.
+3. Verify the downloaded package against the official SHA-256 values.
+4. Remove or sanitize private information from screenshots and logs.
+
+Additional reports are useful when they provide a different machine, model, backend, reproduction path, screenshot, or sanitized log detail.
+
+## Report a new issue
+
+### [Open the Nyx bug-report form](https://github.com/dietrichailabs-oss/Nyx-Beta/issues/new?template=bug_report.yml)
 
 Include:
 
 - what happened and what you expected
 - exact steps and prompt used
-- Nyx version/package
+- Nyx version and package type
 - Windows version
 - CPU, RAM, GPU, and VRAM when known
-- selected model, backend, and Smart Web state
+- selected model and backend
+- Smart Web state when relevant
 - Ollama installation path when relevant
 - model-storage drive type and location when relevant
 - screenshot or sanitized log excerpt
 
-Do not post passwords, API keys, private documents, full diagnostic archives, serial numbers, or sensitive local paths in public issues.
+Do not post passwords, API keys, private documents, full diagnostic archives, serial numbers, credentials, or sensitive local paths in public issues.
