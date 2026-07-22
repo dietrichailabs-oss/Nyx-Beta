@@ -4,184 +4,192 @@
 
 # Nyx Windows Beta
 
-Beta distribution repo for Nyx Windows releases by Dietrich AI Labs.
-
-This repository is for beta testers. It is not the main source-code repository.
-
 <p align="center">
-  <a href="../../issues">
-    <img src="https://img.shields.io/badge/KNOWN%20ISSUES%20%26%20ACTIVE%20WORK-READ%20BEFORE%20TESTING-red?style=for-the-badge" alt="Known Issues and Active Work" />
-  </a>
+  <a href="https://github.com/dietrichailabs-oss/Nyx-Beta/releases/tag/v1.0.0-rc.7"><img src="https://img.shields.io/badge/latest-RC7-5d5fef?style=for-the-badge" alt="Latest release: RC7" /></a>
+  <a href="https://github.com/dietrichailabs-oss/Nyx-Beta/issues/new?template=bug_report.yml"><img src="https://img.shields.io/badge/report-a%20bug-d73a4a?style=for-the-badge" alt="Report a bug" /></a>
+  <a href="https://github.com/dietrichailabs-oss/Nyx-Beta/issues"><img src="https://img.shields.io/badge/view-open%20issues-f0ad4e?style=for-the-badge" alt="View open issues" /></a>
 </p>
 
-> **🔴 Known issues / currently working on**
->
-> - **RC7 Agents:** live execution progress, same-run Agents Lab monitoring, changed-model reapproval/retry, automatic multi-stage runs, recommendation profile controls, truthful blocked state, and clear output reporting are under final validation.
-> - **Local routing / fallback:** explicitly selected local models can be intercepted by incorrect routing, and a failed backend may emit a second fabricated answer. This is an RC7 release blocker.
-> - **Ollama / hardware / storage:** executable discovery, AMD CPU/GPU/VRAM display, and slow external-model-drive warnings are being repaired for RC7.
-> - **Installer:** the next installer build will move application binaries to Program Files while preserving writable user data and separately configured model storage.
-> - **Live themes:** some Agents surfaces may not repaint immediately after a theme change.
->
-> Check [open issues](../../issues) before filing a duplicate report.
+Nyx is a **local-first Windows AI assistant** by Dietrich AI Labs. This public repository distributes beta builds, tester documentation, release notes, and checksums. It is not the private development repository.
 
-## Latest public download
+> [!IMPORTANT]
+> **Nyx Beta 1.0 RC7 is here.** RC7 passed application acceptance, exact-artifact package testing, security and package-cleanliness review, installer lifecycle testing, and clean Windows VM validation.
 
-**Current public beta:** Nyx Beta 1.0 RC6
+## Download Nyx RC7
 
-- Download the release package: [Nyx_Beta_1_0_RC6_20260711_111716.zip](../../releases/latest/download/Nyx_Beta_1_0_RC6_20260711_111716.zip)
-- View all releases: [Releases](../../releases)
+**Current release:** Nyx Beta 1.0 RC7  
+**Version:** `1.0.0-rc.7`  
+**Build:** `2026.07.21-rc7`  
+**Windows file version:** `1.0.0.7`  
+**Release tag:** [`v1.0.0-rc.7`](https://github.com/dietrichailabs-oss/Nyx-Beta/releases/tag/v1.0.0-rc.7)
 
-The RC6 package includes:
+Choose the package that fits your use:
 
-- `Nyx_Beta_1.0_RC6_Setup.exe`
-- `SHA256SUMS.txt`
-- `RC6_PACKAGE_NOTES.txt`
-- `RUN_INSTALLER_WITH_LOG.bat`
-- `README.txt`
+| Package | Best for |
+|---|---|
+| `Nyx_1.0.0-rc.7_Windows_x64_Setup.exe` | Normal Windows installation |
+| `Nyx_1.0.0-rc.7_Windows_x64_Installer.zip` | Installer plus the accompanying release documents |
+| `Nyx_1.0.0-rc.7_Windows_x64_Portable.zip` | Portable use without a traditional installation |
+| `Nyx_1.0.0-rc.7_Source.zip` | Public source snapshot for this release |
 
-Do not download random files from chat history, commit history, or old links if a newer release exists here.
+Use the included `SHA256SUMS.txt` and `VERIFY_SHA256.ps1` to verify downloads before running them.
 
-## Current release status
-
-Nyx Beta 1.0 RC6 is the current public release candidate package.
-
-RC6 focuses on first-run setup reliability, installer polish, hardware-aware starter model recommendations, and tester-facing cleanup. The validated RC6 build package is:
+<details>
+<summary><strong>Official RC7 SHA-256 values</strong></summary>
 
 ```text
-Nyx_Beta_1_0_RC6_20260711_111716
+52ED95CAFCDA3AA05C6779DF76443A7DD65F90C99912A19B70B987A03F7ECD4B  Nyx_1.0.0-rc.7_Windows_x64_Portable.zip
+5D97FB0470A6484FE8ACF8DA8CE020DF5B5449C473B5116AAFD0ACDA6CE693A3  Nyx_1.0.0-rc.7_Windows_x64_Setup.exe
+8E44988F9D1B919E6B1BF090D08C77AA5E6C80E67CCF33247A15760E50339902  Nyx_1.0.0-rc.7_Windows_x64_Installer.zip
+7295C32BF3AF190A33575C5F47447B59BAAD9AA6D1AD8865A939E5BFCCE3286D  Nyx_1.0.0-rc.7_Source.zip
 ```
 
-The previous RC5 build remains preserved in the release history, but RC6 is the recommended tester download.
+</details>
 
-## What this repo is for
+## What changed in RC7
 
-- Downloading the latest Nyx Windows beta release package.
-- Reading install instructions.
-- Reading known issues and SmartScreen notes.
-- Reporting tester feedback through GitHub Issues.
+RC7 is the largest Nyx beta milestone so far. It moves Nyx beyond basic local chat into controlled, persistent project execution while preserving explicit user approval and truthful status reporting.
+
+### Controlled projects and agents
+
+- Shared agent foundation for Main Chat and the Agents experience.
+- Persistent projects with clarifications, assumptions, workflows, assignments, approvals, and workspace preparation.
+- Explicit model/backend assignments using installed Ollama models or verified local GGUF files.
+- Protected workspaces with ownership checks and approval gates before execution.
+- Resumable execution runs with immutable prior-run history.
+- Watch Live, stage progress, elapsed time, current model/backend identity, Stop, retry, resume, and truthful blocked states.
+- Recommendation profiles for smaller/faster suitable models or larger/stronger suitable models.
+
+### Interface and reliability
+
+- Live theme propagation across Agents surfaces and Dietrich AI Labs.
+- Authoritative role cards that mirror the same persisted run shown by Watch Live.
+- Failed-stage reassignment and retry through the normal Tk mainloop.
+- Retry preserves failed history, uses the newly approved assignment, and stops truthfully at a later unapproved stage.
+- No hidden model downloads, silent backend changes, or destructive workspace behavior were introduced.
+
+### Release engineering
+
+- Clean allowlisted runtime and source staging.
+- Deterministic manifests and source identities.
+- Portable, installer, and source packages built from accepted source.
+- Exact-artifact extraction and package-content comparison.
+- Host install, launch, update, uninstall, reinstall, and final uninstall lifecycle testing.
+- Independent security and package-cleanliness approval for the exact published hashes.
+- Clean native Windows VM installation and functional validation.
+
+## The road to RC7 — yes, it fought back
+
+RC7 did not quietly walk out the door.
+
+- A production-only Dietrich AI Labs theme bug survived the first repair because the visible **Labs** button had been rewired repeatedly during startup and still reached an obsolete launcher. The real production click path was traced, including **23 startup rewires**, before the authoritative launcher was repaired.
+- Failed-stage retry had to be proven inside the live Tk mainloop—not only in unit tests—while preserving the failed run, accepting a new approved assignment, continuing forward, and then blocking truthfully at the next incomplete stage.
+- Multiple real Nyx windows were launched during artifact testing to exercise packaged, installed, relaunched, and lifecycle states. It looked briefly like the Nyx multiverse had opened.
+- The release build completed on the final fumes of the weekly automation budget, reaching the finish line as the meter hit zero.
+- The finished installer was then transferred into a stubborn offline Hyper-V VM and tested again on clean Windows.
+
+The result was worth the fight.
+
+## Verification summary
+
+Final accepted validation included:
+
+- **1,254** focused RC7 tests passed, with 2 environment-dependent symlink-permission skips.
+- **844** planning/execution tests passed, with the same 2 skips.
+- **1,304** agent tests passed, with the same 2 skips.
+- **1,427** full-discovery tests passed, with the same 2 skips.
+- **926/926** smoke checks passed.
+- **70/70** live-theme smoke checks passed.
+- **18/18** release-metadata smoke checks passed.
+- Exact portable extraction comparison passed **19/19**.
+- Packaged and installed executables launched visibly and responsively.
+- Security verdict: **Approved for the exact hashed artifacts**.
+- Clean Windows VM validation: **Passed**.
+
+See [CHANGELOG.md](CHANGELOG.md) for the complete release history.
 
 ## Quick start
 
-1. Open [Releases](../../releases), or use the latest download link above.
-2. Download `Nyx_Beta_1_0_RC6_20260711_111716.zip`.
-3. Extract the ZIP package. It should extract into one top-level folder.
-4. Run `Nyx_Beta_1.0_RC6_Setup.exe`.
-5. If Windows SmartScreen appears, choose **More info > Run anyway**.
-6. Launch Nyx from the Start Menu or desktop shortcut if created.
-7. Use the First-Run Setup window to configure Ollama/model folders and review starter model recommendations.
-8. Test using [TESTER_GUIDE.md](TESTER_GUIDE.md).
-9. Report bugs under [Issues](../../issues) or by using the in-app **Bug Report** button.
+1. Open the [`v1.0.0-rc.7` release](https://github.com/dietrichailabs-oss/Nyx-Beta/releases/tag/v1.0.0-rc.7).
+2. Download the normal installer, installer ZIP, or portable ZIP.
+3. Verify the SHA-256 checksum.
+4. For the installer, run `Nyx_1.0.0-rc.7_Windows_x64_Setup.exe` and follow the prompts.
+5. Windows SmartScreen may display a warning because this beta does not yet have broad code-signing reputation. Review [SMARTSCREEN_NOTES.md](SMARTSCREEN_NOTES.md).
+6. Launch Nyx and complete first-run model/backend setup.
+7. Review [TESTER_GUIDE.md](TESTER_GUIDE.md) before broader testing.
 
-Default install location:
-
-```text
-%LOCALAPPDATA%\Programs\Nyx
-```
+Nyx does not secretly download a model. Ollama and GGUF/llama.cpp remain separately configured local backends.
 
 ## Hardware expectations
 
-Nyx can run without a dedicated GPU, including on supported integrated graphics or CPU-only systems, but local-model speed, model size, and first-response latency may vary significantly.
+Nyx can launch without a dedicated GPU, but local-model speed and practical model size vary significantly by hardware.
 
-- A **dedicated GPU is still recommended** for the best local-model experience.
-- NVIDIA and AMD discrete GPUs are supported through the configured Ollama/backend path when the GPU, driver, and backend combination is compatible.
-- **AMD supported\*** — Nyx was successfully trialed with an older **Radeon RX 5700 XT 8 GB** running `llama3.1:8b` fully on the GPU. Newer desktop Radeon generations should generally work without issue with current drivers and adequate VRAM, though experience may vary by exact GPU, driver, and backend.
-- Integrated GPUs can work for lighter models and basic use, but performance and supported model sizes vary widely. Users should expect smaller-model recommendations and potentially slower responses.
-- CPU-only use is supported for smaller models, but larger models may be impractically slow or may time out on weak hardware.
+- A dedicated NVIDIA or AMD GPU is recommended for the best experience.
+- Integrated-GPU and CPU-only use are possible with appropriately small models.
 - Internal SSD or NVMe storage is recommended for active medium and large models.
+- Large models stored on slow external spinning drives may take long enough to hit application timeouts.
+- USB-C describes the connector, not guaranteed storage performance.
 
-> **External-drive warning:** If models must be stored externally, a fast external SSD over USB-C or USB 3.x is recommended. User experience may vary based on the drive, enclosure, cable, negotiated link speed, and model size. USB-C is only the connector and does not guarantee high performance. External spinning hard drives are better suited to bulk/archive storage and may cause very long cold loads or application timeouts with larger models.
+Nyx was successfully trialed with an older Radeon RX 5700 XT 8 GB running `llama3.1:8b` through Ollama at full GPU allocation. Exact results still depend on GPU, drivers, backend, model, quantization, context length, RAM, and storage.
 
-See [HARDWARE_REQUIREMENTS.md](HARDWARE_REQUIREMENTS.md) for the full minimum, recommended, AMD validation, storage, and model-size guidance.
+See [HARDWARE_REQUIREMENTS.md](HARDWARE_REQUIREMENTS.md) for detailed guidance.
 
-## What's new in RC6
+## Report a problem
 
-- Fixed duplicate First-Run Setup behavior.
-- Restored one full-featured First-Run Setup window.
-- Added lazy hardware auto-detect and recommended model selection.
-- Added a Refresh Hardware button.
-- Improved Settings open speed.
-- Improved Dev Assistant theme matching.
-- Fixed taskbar grouping with a stable Windows AppUserModelID.
-- Fixed installer icon handling.
-- Added user-facing `Uninstall Nyx` shortcuts with Nyx icon.
-- Improved ZIP layout so files extract into one folder.
-- Preserved no-model popup behavior.
-- Preserved uninstall/reset behavior.
+The in-app **Bug Report** tool is the preferred option because it helps collect the relevant Nyx details locally.
 
-## Verified in RC6
+When the app cannot be used, report the problem directly on GitHub:
 
-- Clean VM install completed successfully.
-- First launch opens exactly one First-Run Setup window.
-- Hardware section detects CPU/RAM in the VM and safely treats GPU/VRAM as unknown when unavailable.
-- Recommended starter models update safely without blocking first launch.
-- Settings opens quickly after moving model/status checks out of the initial open path.
-- Dev Assistant follows the active Nyx theme on open and theme change.
-- Taskbar grouping works after reinstall/re-pin.
-- Installer icon displays correctly.
-- `Uninstall Nyx` shortcuts are present with the Nyx icon.
-- ZIP package extracts into one clean top-level folder.
-- No-model popup behavior remains intact.
+### [Open a Nyx bug report](https://github.com/dietrichailabs-oss/Nyx-Beta/issues/new?template=bug_report.yml)
 
-## RC5 issues resolved or improved in RC6
+Before filing, check the [open issues](https://github.com/dietrichailabs-oss/Nyx-Beta/issues) for an existing report.
 
-Please check this list before opening a new issue. Extra reports are still useful if they add a new reproduction path, screenshot, machine type, or log detail.
+Useful reports include:
 
-- **Duplicate First-Run Setup windows** — improved in RC6. The intended setup path is now one full-featured `Nyx First Run Setup` window.
-- **Dev Tools / Dev Assistant theme mismatch** — improved in RC6. The Dev Assistant now attempts to follow the active Nyx shell theme.
-- **Pinned taskbar icon opened a separate running icon** — improved in RC6 using a stable AppUserModelID.
-- **No-model popup behavior** — remains expected behavior. If no local model is installed, Nyx should show a no-model popup instead of pretending to answer.
+- what happened and what you expected
+- exact steps to reproduce it
+- Nyx version and package type
+- Windows version
+- CPU, RAM, GPU, and VRAM when known
+- selected model and backend
+- screenshots or sanitized log excerpts
 
-Not currently considered a Nyx bug: a small/clipped window in the clean Hyper-V VM was fixed by changing the VM display/resolution/scaling settings.
+Never post passwords, API keys, private documents, full diagnostic archives, serial numbers, or sensitive local paths in a public issue.
 
 ## Important beta notes
 
-Nyx is beta software. Expect rough edges.
+Nyx remains beta software. Expect rough edges.
 
-Current expected warnings:
+- SmartScreen or antivirus may inspect or delay a new beta installer.
+- Local-model behavior depends heavily on hardware, drivers, backend configuration, and storage.
+- First launch may require Ollama installation or a separately configured GGUF/llama.cpp backend.
+- Hardware Auto-Detect, Audit Viewer, Restore/Rollback, and Backend Status are informational or diagnostic unless the user explicitly chooses a separate action.
+- Nyx is Windows-focused today. Linux work and the future Nyx OS are separate projects built around a mature Nyx core.
+- Do not treat beta output as professional medical, legal, financial, or security advice.
 
-- Windows SmartScreen may warn because this is not broadly trusted signed software yet.
-- Antivirus may inspect or delay the installer because it is a new beta executable.
-- First launch may still require Ollama setup or model download depending on the tester machine.
-- Internal Inno Setup uninstall files such as `unins000.exe` are normal; use the `Uninstall Nyx` shortcut or Windows Installed Apps UI.
-- GGUF / llama.cpp requires separate local configuration.
-- Large local models may take time to load depending on hardware.
-- External model drives may load much more slowly. USB-C/USB 3.x external SSDs are recommended when external storage is necessary; experience may vary, and USB-C alone does not guarantee high performance.
-- Restore/Rollback is informational only.
-- Audit Viewer is read-only metadata only.
-- Hardware Auto-Detect is read-only metadata only.
-- Backend Status is diagnostic/read-only.
-- The app is Windows-focused right now.
+## Documentation
 
-## Do not
+- [INSTALL.md](INSTALL.md) — installation guidance
+- [TESTER_GUIDE.md](TESTER_GUIDE.md) — beta testing guidance
+- [HARDWARE_REQUIREMENTS.md](HARDWARE_REQUIREMENTS.md) — hardware and model-size guidance
+- [KNOWN_ISSUES.md](KNOWN_ISSUES.md) — expected limitations and live issue links
+- [SMARTSCREEN_NOTES.md](SMARTSCREEN_NOTES.md) — Windows warning explanation
+- [SECURITY_AND_PRIVACY.md](SECURITY_AND_PRIVACY.md) — beta safety and privacy notes
+- [CHANGELOG.md](CHANGELOG.md) — release history
 
-- Rehost modified beta ZIPs as official builds.
-- Upload private files, credentials, keys, or sensitive business data during testing.
-- Treat beta output as professional, medical, legal, or financial advice.
+## Project repositories
 
-## Useful docs
+- Public beta distribution: [dietrichailabs-oss/Nyx-Beta](https://github.com/dietrichailabs-oss/Nyx-Beta)
+- Main development repository: [dietrichailabs-oss/Nyx](https://github.com/dietrichailabs-oss/Nyx)
 
-- [INSTALL.md](INSTALL.md) — install steps.
-- [TESTER_GUIDE.md](TESTER_GUIDE.md) — what to test.
-- [HARDWARE_REQUIREMENTS.md](HARDWARE_REQUIREMENTS.md) — minimum, recommended, AMD, integrated-GPU, storage, and model-size guidance.
-- [RC7_VALIDATION_PLAN.md](RC7_VALIDATION_PLAN.md) — planned cross-hardware and release-blocker acceptance testing for RC7.
-- [KNOWN_ISSUES.md](KNOWN_ISSUES.md) — current expected rough edges.
-- [SMARTSCREEN_NOTES.md](SMARTSCREEN_NOTES.md) — Windows warning explanation.
-- [SECURITY_AND_PRIVACY.md](SECURITY_AND_PRIVACY.md) — beta safety notes.
-- [CHANGELOG.md](CHANGELOG.md) — release notes history.
-- [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md) — maintainer release checklist.
+## Current release identity
 
-## Project repos
+```text
+Product: Nyx Beta 1.0 RC7
+Version: 1.0.0-rc.7
+Build: 2026.07.21-rc7
+Windows file version: 1.0.0.7
+Release tag: v1.0.0-rc.7
+```
 
-Main source repo: [dietrichailabs-oss/Nyx](https://github.com/dietrichailabs-oss/Nyx).
-
-Beta distribution repo: [dietrichailabs-oss/Nyx-Beta](https://github.com/dietrichailabs-oss/Nyx-Beta).
-
-## Version
-
-Latest public release candidate: `1.0.0-rc.6`
-
-Release tag: `v1.0.0-rc.6`
-
-Build package: `Nyx_Beta_1_0_RC6_20260711_111716`
-
-Previous public release candidate: `1.0.0-rc.5`
+Previous public release candidate: `1.0.0-rc.6`
